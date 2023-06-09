@@ -1,4 +1,4 @@
-export interface Transaction {
+export default interface Transaction {
     id: string,
     from: string,
     to: string,
