@@ -5,3 +5,10 @@ export default interface User {
     password: string,
     balance: number
 }
+
+export default interface UserInput {
+    name: string,
+    username: string,
+    password: string,
+    balance: number
+}

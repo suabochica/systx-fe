@@ -1,5 +1,7 @@
-import Login from './login/login.component'
+import Input from './input.component'
+import Form from './form.component'
 
 export {
-    Login
+    Input,
+    Form
 }
