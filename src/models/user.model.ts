@@ -1,14 +1,10 @@
-export default interface User {
-    id: string,
+export type UserInput = {
     name: string,
     username: string,
     password: string,
-    balance: number
+    balance: number,
 }
 
-export default interface UserInput {
-    name: string,
-    username: string,
-    password: string,
-    balance: number
+export interface User extends UserInput {
+    id: string,
 }

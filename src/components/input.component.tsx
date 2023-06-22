@@ -1,5 +1,8 @@
 // Input component
 
+import { Formatter } from "../commons"
+import { ISO } from "../commons/optics/iso.optic"
+
 export interface InputProps {
     id: string
     label: string
@@ -12,10 +15,10 @@ const Input = ({
     id,
     label,
     name = id,
-    formatter = Iso.id(), // TODO: Check ISO type
+    formatter = ISO.id(), // TODO: Check ISO type
     type = "text"
 }: InputProps) => {
     // TODO: add component body
 }
 
-export default Input
+export default Input;

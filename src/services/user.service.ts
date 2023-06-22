@@ -1,4 +1,4 @@
-import { User } from "../models/user.model"
+import { User as UserModel, UserInput } from "../models/user.model"
 
 class User {
   // static means that are called on runtime
@@ -17,7 +17,7 @@ class User {
         return Promise.reject(response)
       }
 
-      return response.json() as Promise<User>
+      return response.json() as Promise<UserModel>
     })
   }
 
@@ -27,7 +27,8 @@ class User {
       body: JSON.stringify({
         username: userInput.username,
         password: userInput.password,
-        name: userInput.name
+        name: userInput.name,
+        balance: 1000
       }),
       headers: {
         "content-type": "application/json",
@@ -37,10 +38,9 @@ class User {
         return Promise.reject(response)
       }
 
-      return response.json() as Promise<User>
+      return response.json() as Promise<UserModel>
     })
   }
 }
 
-// Then we will do a hook to listen this promises.
-// Instantiate method: new keyword.
+export default User;

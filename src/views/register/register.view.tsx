@@ -1,39 +1,44 @@
-import { Form, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
+import { User as UserService } from '../../services';
 import './register.styles.css'
 
 const Register = () => {
-    const nav = useNavigate()
+  const nav = useNavigate()
 
-    return <div>
-        <Form<CreateUserData>
-            initialState={{
-                name: "",
-                username: "",
-                password: "",
-            }}
-            schema={CreateSchema}
-            onSubmit={(data) => {
-                UserService
-                    .register(data)
-                    .then()
-                    .catch((error) => {
-                        console.log(error)
-                    })
-            }}
-            cleanOnChange
-        >
-            <Input id="name" label="Name"/>
-            <Input id="username" label="Username"/>
-            <Input id="password" label="Password" type="password"/>
-            <Field.Connect>
-                {({ submit }) => <button onClick={(event) => {
-                    event.preventDefault();
-                    submit()
-                }}>Register</button>}
-            </Field.Connect>
-        </Form>
-    </div>
+  const handleSubmit = (username: string, password: string) => {
+    UserService
+      .register({ username: "", password: "", name: "", balance: 0 })
+      .then((user) => {
+        console.info(user)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
+  return /** 
+    <div className="container center">
+      <h1>Register</h1>
+      <form
+        onSubmit={handleSubmit}
+      >
+        <label for="name" label="name">Name</label>
+        <input id="name" type="text">
+
+        <label for="username" label="username">Username</label>
+        <input id="username" type="text">
+
+        <label for="password" label="password">Password</label>
+        <input id="username" type="password">
+
+        <label for="balance" label="balance">Balance</label>
+        <input id="balance" type="number">
+
+        <button className="btn register-button">Register</button>
+
+      </form>
+    </div>*/
 }
 
 export default Register;

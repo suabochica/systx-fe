@@ -40,4 +40,4 @@ const Form = <T extends Record<string, unknown>>({
     // TODO: Add body implementation
 }
 
-export default Form
+export default Form;
