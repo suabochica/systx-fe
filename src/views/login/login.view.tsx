@@ -1,6 +1,8 @@
 // Relative Imports
+import { useCallback, useState } from 'react';
 import { User as UserService } from '../../services';
 import './login.styles.css'
+import { useNavigate } from 'react-router-dom';
 
 const formInit = { username: "", password: "" };
 
@@ -26,8 +28,7 @@ const Login = () => {
       })
   }
 
-  return //TODO: add render function. Fix implicit any error
-  /**
+  return
   (
     <div className="container center">
       <h1>Login</h1>
@@ -35,16 +36,16 @@ const Login = () => {
         onChange={handleChange}
         onSubmit={handleSubmit}
       >
-        <label for="username" label="username">Username</label>
-        <input id="username" type="text">
+        <label htmlFor="username">Username</label>
+        <input id="username" type="text"/>
 
-        <label for="password" label="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input id="username" type="password"></input>
-        <button className="btn login-button">Login</button>
 
+        <button className="btn login-button" type="submit">Login</button>
       </form>
     </div>
-  )*/
+  )
 }
 
 export default Login
